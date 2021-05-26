@@ -1,6 +1,4 @@
 /*
-Template Name: Electro - HTML Ecommerce Template
-Author: yaminncco
 
 Colors:
 	Body 		: #333
@@ -54,6 +52,8 @@ Table OF Contents
 /*----------------------------*\
 	Typography
 \*----------------------------*/
+
+
 
 body {
   font-family: 'Montserrat', sans-serif;
@@ -399,10 +399,10 @@ textarea.input {
 #breadcrumb .breadcrumb-tree li a {
   color: #8D99AE;
 }
-
+/*
 #breadcrumb .breadcrumb-tree li a:hover {
   color: #D10024;
-}
+}*/
 
 /*=========================================================
 	02 -> HEADER
@@ -458,7 +458,10 @@ textarea.input {
 .header-logo .logo img {
   display: block;
 }
-
+.header-name{
+  color: white;
+  padding: 15px 0px;
+}
 /*----------------------------*\
 	Search
 \*----------------------------*/
@@ -519,6 +522,10 @@ textarea.input {
 .header-ctn>div>a>i {
   display: block;
   font-size: 18px;
+}
+
+a.paddd{
+  float: right;
 }
 
 .header-ctn>div>a>span {
@@ -624,7 +631,7 @@ textarea.input {
 #navigation {
   background: #FFF;
   border-bottom: 2px solid #E4E7ED;
-  border-top: 3px solid #D10024;
+  /*border-top: 3px solid #D10024;*/
 }
 
 /*----------------------------*\
@@ -1249,7 +1256,7 @@ textarea.input {
   border: 1px solid #E4E7ED;
   border-radius: 0px;
 }
-
+/*
 .noUi-connect {
   background-color: #D10024;
 }
@@ -1269,7 +1276,7 @@ textarea.input {
   box-shadow: none;
   border-radius: 50%;
 }
-
+*/
 .noUi-handle:before, .noUi-handle:after {
   display: none;
 }

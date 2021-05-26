@@ -76,7 +76,7 @@
                                             <label >Product Tags*</label>
                                             <input type="text" class="form-control" id="Tags" name="Tags" value="">
                                         </div>
-                                        <input type="submit" name="saveButton" class="btn btn-success mr-2" id="saveButton" value="Create"  />
+                                        <input type="submit" name="saveButton" class="btn btn-success mr-2" id="saveButton" value="Create"  enctype="multipart/form-data"/>
                                     </form>
                                     @if($errors->any())
 

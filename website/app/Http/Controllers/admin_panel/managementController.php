@@ -10,6 +10,7 @@ use App\Category;
 use App\sale;
 use App\User;
 use App\Address;
+use Illuminate\Support\Arr;
 class managementController extends Controller
 {
     public function manage()
@@ -34,7 +35,7 @@ class managementController extends Controller
              $totalCart = explode(',',$r->product_id);
              foreach($totalCart as $c)
              {
-                $cart[]=array_prepend(explode(':',$c), $r->id);
+                $cart[]=Arr::prepend(explode(':',$c), $r->id);
                 $a=explode(':',$c);
                 $res = Product::find($a[0]);
                 $product[]=$res;

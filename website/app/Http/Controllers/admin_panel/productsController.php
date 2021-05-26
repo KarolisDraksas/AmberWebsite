@@ -85,8 +85,8 @@ class productsController extends Controller
 
         }
             
-        /* $file = $request->file('myfile');
-            //$last_inc_id = DB::getPdo()->lastInsertId();
+         /*$file = $request->file('myfile');
+            //$last_inc_id = DB::getPdo()->lastInsertId();//
             $extension=$file->getClientOriginalExtension();
             
             
@@ -94,16 +94,18 @@ class productsController extends Controller
             
             
             
-            $file->move(public_path().$temp_string."/","1.".$file->getClientOriginalExtension());
+            $file->move(public_path().$temp_string."/","1.".$file->getClientOriginalExtension());*/
             
             
         
-            */
+            
             
             
         return redirect()->route('admin.products');
-        } catch (\Throwable $th) {
+        } catch (Throwable $th) {
             dd($th->getMessage());
+            /*return view('admin.products');*/
+           /* return redirect()->route('admin_panel.products');*/
         }
         
     }
@@ -188,8 +190,8 @@ class productsController extends Controller
             return redirect()->route('admin.products');
             
             
-            
-            /*$file = $request->file('myfile');
+            /*
+            $file = $request->file('myfile');
             $extension=$file->getClientOriginalExtension();
             if($extension=="jpg"|| $extension=="jpeg"|| $extension=="png"|| $extension=="JPG"|| $extension=="JPEG"|| $extension=="PNG" )
             {

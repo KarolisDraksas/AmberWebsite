@@ -5,7 +5,7 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Star Admin Dashboard</title>
+    <title>Admim</title>
     <!-- plugins:css -->
     <link rel="stylesheet" href="{{asset('vendors/iconfonts/mdi/css/materialdesignicons.min.css')}}">
     <link rel="stylesheet" href="{{asset('vendors/css/vendor.bundle.base.css')}}">
@@ -24,17 +24,23 @@
 <body>
     <div class="container-scroller">
         <!-- partial:partials/_navbar.html -->
-        <nav class="navbar default-layout col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
-            <div class="text-center navbar-brand-wrapper d-flex align-items-top justify-content-center">
-                <a class="navbar-brand brand-logo" href="{{route('admin.dashboard')}}">
-                    <div style="color: #007bff;">Electro</div>
-                </a>
-                <a class="navbar-brand brand-logo-mini" href="{{route('admin.dashboard')}}">
-                    <div style="color: #007bff;">Electro</div>
-                </a>
-            </div>
-            <div class="navbar-menu-wrapper d-flex align-items-center">
-                <ul class="navbar-nav navbar-nav-right">
+        <nav class="navbar navbar-dark col-lg-12 col-12 p-0 d-flex flex-row" style="background-color: #e3f2fd;">
+            <div class="navbar-menu-wrapper d-flex  align-items-center">
+                   
+                    <a class="nav-link" href="{{route('admin.dashboard')}}">
+                            <span>Dashboard</span>
+                    </a>
+                    <a class="nav-link" href="{{route('admin.products')}}">
+                            <span>Products</span>
+                    </a>
+                    <a class="nav-link" href="{{route('admin.categories')}}">
+                            <span>Categories</span>
+                        </a>
+                        <a class="nav-link" href="{{route('admin.orderManagement')}}">
+                            <span>Order Management</span>
+                        </a>
+
+                <!--<ul class="navbar-nav navbar-nav-right">
                     <li class="nav-item dropdown d-none d-xl-inline-block">
                         <a class="nav-link dropdown-toggle" id="UserDropdown" href="#" data-toggle="dropdown" aria-expanded="false">
                             <span class="profile-text">{{session()->get('admin')->name}}</span>
@@ -47,72 +53,20 @@
                                 Sign Out
                             </a>
                         </div>
+
                     </li>
-                </ul>
-                <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="offcanvas">
+                </ul>-->
+                <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-right" type="button" data-toggle="offcanvas">
                     <span class="mdi mdi-menu"></span>
                 </button>
             </div>
+            <a class="nav-link" href="{{route('admin.logout')}}">
+                    <span class="">Sign Out</span>
+            </a>
         </nav>
-        <!-- partial -->
-        <div class="container-fluid page-body-wrapper">
-            <!-- partial:partials/_sidebar.html -->
-            <nav class="sidebar sidebar-offcanvas" id="sidebar">
-                <ul class="nav">
-                    <li class="nav-item nav-profile">
-                        <div class="nav-link">
-                            <div class="user-wrapper">
-                                <div class="profile-image">
-                                    <img src="{{asset('images/faces/face1.jpg')}}" alt="profile image">
-                                </div>
-                                <div class="text-wrapper">
-                                    <p class="profile-name">{{session()->get('admin')->name}}</p>
-                                    <div>
-                                        <small class="designation text-muted">Admin</small>
-                                        <span class="status-indicator online"></span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </li>
-                    <li class="nav-item {{Route::is('admin.dashboard') ? 'active' : ''}}">
-                        <a class="nav-link" href="{{route('admin.dashboard')}}">
-                            <i class="menu-icon mdi mdi-television"></i>
-                            <span class="menu-title">Dashboard</span>
-                        </a>
-                    </li>
-                    <li class="nav-item {{Route::is('admin.products') ? 'active' : ''}}">
-                        <a class="nav-link" href="{{route('admin.products')}}">
-                            <i class="menu-icon mdi mdi-cart-outline"></i>
-                            <span class="menu-title">Products</span>
-                        </a>
-                    </li>
-                    <li class="nav-item {{Route::is('admin.categories') ? 'active' : ''}}">
-                        <a class="nav-link" href="{{route('admin.categories')}}">
-                            <i class="menu-icon mdi mdi-view-grid"></i>
-                            <span class="menu-title">Categories</span>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{route('admin.orderManagement')}}">
-                            <i class="menu-icon mdi mdi-content-paste"></i>
-                            <span class="menu-title">Order Management</span>
-                        </a>
-                    </li>
-                </ul>
-            </nav>
-            <!-- partial -->
-            <div class="main-panel">
-                @yield('content')
-                <!-- content-wrapper ends -->
-                <!-- partial:partials/_footer.html -->
-                <footer class="footer">
-                   
-                </footer>
-                <!-- partial -->
+        <div class="">
+        @yield('content')
             </div>
-            <!-- main-panel ends -->
-        </div>
         <!-- page-body-wrapper ends -->
     </div>
     <!-- container-scroller -->
