@@ -60,13 +60,13 @@
     <!-- HEADER -->
     <header>
         <!-- TOP HEADER -->
-        <div id="top-header">
+        <!--<div id="top-header">
             <div class="container">
-               <!-- <ul id="head_links" class="header-links pull-left">
+                 <ul id="head_links" class="header-links pull-left">
                     <li><a href="#"><i class="fa fa-phone"></i> +000-00-00-06*</a></li>
                     <li><a href="#"><i class="fa fa-envelope-o"></i> support@electro.com</a></li>
                     <li><a href="#"><i class="fa fa-map-marker"></i> Banani, Road 11</a></li>
-                </ul>-->
+                </ul>
                 <ul class="header-links pull-right">
                     @if(session()->has('user'))
                       <li><a style="color:white" href="{{route('user.history')}}">{{session()->get('user')->full_name}} </a></li>  
@@ -79,7 +79,7 @@
                     
                 </ul>
             </div>
-        </div>
+        </div>-->
         <!-- /TOP HEADER -->
 
         <!-- MAIN HEADER -->
@@ -100,7 +100,7 @@
                     <!-- /LOGO -->
 
                     <!-- SEARCH BAR -->
-                    <div class="col-md-6">
+                   <!-- <div class="col-md-6">
                         <div class="header-search">
                             <form action="{{route('user.search')}}" method="get">
                                 <div class="custom_search_top" >
@@ -109,11 +109,11 @@
                                 </div>
                             </form>
                         </div>
-                    </div>
+                    </div>-->
                     <!-- /SEARCH BAR -->
 
                     <!-- ACCOUNT -->
-                    <div class="col-md-3 clearfix">
+                    <div class="col-md-7 clearfix">
                         <div class="header-ctn">
                             <!-- Cart -->
                             <div  class="dropdown">
@@ -134,6 +134,19 @@
                             </div>-->
                             <!-- /Menu Toogle -->
                         </div>
+                    </div>
+                    <div>
+                    <ul class="header-links pull-right">
+                    @if(session()->has('user'))
+                      <li><a style="color:white" href="{{route('user.history')}}">{{session()->get('user')->full_name}} </a></li>  
+                      <li><a href="{{route('user.logout')}}"><i class="fa fa-user-o"></i> Logout</a></li>
+                    @else
+                    <li><a href="{{route('user.login')}}"><i class="fa fa-user-o"></i> Login</a></li>
+                    
+                    <li><a href="{{route('user.signup')}}"><i class="fa fa-user-o"></i> SignUp</a></li>
+                    @endif
+                    
+                    </ul>
                     </div>
                     <!-- /ACCOUNT -->
                 </div>

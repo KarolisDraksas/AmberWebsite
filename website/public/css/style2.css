@@ -96,6 +96,7 @@ ul, ol {
   display: inline-block;
   padding: 12px 30px;
   background-color: #D10024;
+
   border: none;
   border-radius: 40px;
   color: #FFF;
@@ -487,7 +488,8 @@ textarea.input {
 .header-search form .search-btn {
   height: 40px;
   width: 100px;
-  background: #D10024;
+  /*background: #D10024;*/
+  background: #000000;
   color: #FFF;
   font-weight: 700;
   border: none;
@@ -1874,7 +1876,7 @@ a.paddd{
   top: -15px;
   height: 30px;
   border-top: 1px solid #E4E7ED;
-  border-left: 1px solid #E4E7ED;
+  border-left: 1px solid #E4E7ED; /**/
   border-right: 1px solid #E4E7ED;
 }
 

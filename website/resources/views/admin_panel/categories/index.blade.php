@@ -19,15 +19,9 @@
                     <form class="forms-sample" method="post" id="cat_form">
                         {{csrf_field()}}
                         <div class="form-group row">
-                            <label for="exampleInputEmail2" class="col-sm-3 col-form-label">Name</label>
+                            <label for="exampleInputEmail2" class="col-sm-3 col-form-label">Category name</label>
                             <div class="col-sm-9">
-                                <input type="text" class="form-control" name="Name" id="Name" placeholder="Enter Category Name">
-                            </div>
-                        </div>
-                        <div class="form-group row">
-                            <label for="exampleInputPassword2" class="col-sm-3 col-form-label">Category Type</label>
-                            <div class="col-sm-9">
-                                <input type="text" class="form-control" name="Type" id="Type" placeholder="Enter Category Type">
+                                <input type="text" class="form-control" name="Name" id="Name">
                             </div>
                         </div>
                         <button type="submit" class="btn btn-success mr-2">Submit</button>
@@ -52,21 +46,13 @@
                 <div class="card-body">
                     <h4 class="card-title">Categories Table</h4>
                     <div class="table-responsive">
-                        <table class="table table-striped">
+                        <table class="table">
                             <thead>
                                 <tr>
                                     <th>
-                                        Name
+                                       Category name
                                     </th>
-                                    <th>
-                                        Type
-                                    </th>
-                                    <th>
-                                        Created At
-                                    </th>
-                                    <th>
-                                        Updated At
-                                    </th>
+                                    
                                     <th>
                                         Edit
                                     </th>
@@ -81,15 +67,7 @@
                                     <td>
                                         {{$cat->name}}
                                     </td>
-                                    <td>
-                                        {{$cat->type}}
-                                    </td>
-                                    <td>
-                                        {{$cat->created_at}}
-                                    </td>
-                                    <td>
-                                        {{$cat->updated_at}}
-                                    </td>
+                                    
                                     <td>
                                         <a href="{{route('admin.categories.edit', ['id' => $cat->id])}}" class="btn btn-warning">Edit</a>
                                     </td>

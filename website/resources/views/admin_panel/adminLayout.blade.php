@@ -22,23 +22,23 @@
 </head>
 
 <body>
-    <div class="container-scroller">
+    <div class="container-scroller" style="color = black;">
         <!-- partial:partials/_navbar.html -->
-        <nav class="navbar navbar-dark col-lg-12 col-12 p-0 d-flex flex-row" style="background-color: #e3f2fd;">
-            <div class="navbar-menu-wrapper d-flex  align-items-center">
+        <nav class="navbar navbar-dark col-lg-12 col-12 p-0 d-flex flex-row" style="color = black;">
+            <div class="navbar-menu-wrapper d-flex  align-items-center" style="color = black;">
                    
-                    <a class="nav-link" href="{{route('admin.dashboard')}}">
-                            <span>Dashboard</span>
-                    </a>
+                   <!-- <a class="nav-link" style="color = black;" href="{{route('admin.dashboard')}}">
+                            <span style="color = black;">Dashboard</span>
+                    </a>-->
                     <a class="nav-link" href="{{route('admin.products')}}">
                             <span>Products</span>
                     </a>
                     <a class="nav-link" href="{{route('admin.categories')}}">
                             <span>Categories</span>
                         </a>
-                        <a class="nav-link" href="{{route('admin.orderManagement')}}">
+                       <!-- <a class="nav-link" href="{{route('admin.orderManagement')}}">
                             <span>Order Management</span>
-                        </a>
+                        </a>-->
 
                 <!--<ul class="navbar-nav navbar-nav-right">
                     <li class="nav-item dropdown d-none d-xl-inline-block">

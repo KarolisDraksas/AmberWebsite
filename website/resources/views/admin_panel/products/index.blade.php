@@ -7,7 +7,7 @@
                     <h4 class="card-title">Products Table <a class="btn btn-lg btn-success" style="float:right;color:white" href="{{route('admin.products.create')}}">+ Add Product</a></h4>
                     <br><br>
                     <div class="table-responsive">
-                        <table class="table table-striped">
+                        <table class="table">
                             <thead>
                                 <tr>
                                     <th>
@@ -16,9 +16,7 @@
                                     <th>
                                         Name
                                     </th>
-                                    <th>
-                                        Delete
-                                    </th>
+                                
                                     <th>
                                         Price
                                     </th>
@@ -30,9 +28,11 @@
                                     </th>
                                     
                                     <th>
-                                        Update
+                                        Edit
                                     </th>
-                                    
+                                    <th>
+                                        Delete
+                                    </th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -42,9 +42,8 @@
                                         <img src="../uploads/products/{{$prd->id}}/{{$prd->image_name}}" style="width:100px;height:100px;border-radius:10%;" alt="">
                                     </td>
                                     <td>
-                                       <a href="{{route('admin.products.edit', ['id' => $prd->id])}}" class="btn btn-warning">{{$prd->name}}</a>
+                                       {{$prd->name}}
                                     </td>
-                                    <td><a href="{{route('admin.products.delete', ['id' => $prd->id])}}"class="btn btn-danger">Delete</a></td>
                                     <td>
                                         {{$prd->price}}
                                     </td>
@@ -56,7 +55,7 @@
                                     </td>
                                     
                                     <td><a href="{{route('admin.products.edit', ['id' => $prd->id])}}" class="btn btn-warning">Edit</a> </td>
-                                     
+                                    <td><a href="{{route('admin.products.delete', ['id' => $prd->id])}}"class="btn btn-danger">Delete</a></td>
                                 </tr>
                             @endforeach
                             </tbody>

@@ -137,3 +137,4 @@ Route::post('/view/{id}', [App\Http\Controllers\user\userController::class, 'pos
 
 /*Route::get('/product/{id}', 'user\userController@view')->name('user.product');*/
 Route::get('/product/{id}', [App\Http\Controllers\user\userController::class, 'view'])->name('user.product');
+Route::post('/product/{id}', [App\Http\Controllers\user\userController::class, 'post']);

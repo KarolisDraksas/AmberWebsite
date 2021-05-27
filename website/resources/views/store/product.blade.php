@@ -13,8 +13,6 @@ label.error {
   border-color: #ebccd1;
   padding:1px 20px 1px 20px;
 }
-
-
 </style>
 
 <!-- SECTION -->
@@ -107,7 +105,6 @@ label.error {
             {
                 
             document.getElementById("for_error").innerHTML = "<label class='error' style=' '>Invalid Variation Input</label>";
-
             }
                 else
                     {
@@ -116,7 +113,6 @@ label.error {
                 
          }
 		});
-
 		
 	});
 	

@@ -30,7 +30,7 @@ label.error {
     float: left;
     overflow: hidden;
     padding: 3px 1.8%;
-    width:20%;
+    width:33%;
     
 }
 .rTable:after {
@@ -54,7 +54,7 @@ label.error {
             <!-- Order Details -->
             <div class="col-md-5 order-details" style="width: 100%;">
                 <div class="section-title text-center">
-                    <h3 class="title">Your Order</h3>
+                    <h3 class="title">Your Cart</h3>
                 </div>
                 <div id="order_summary" class="order-summary">
                    
@@ -65,10 +65,7 @@ label.error {
                         <div class="rTableRow">
                             <div class="rTableHead"><strong>REMOVE</strong></div>
                             <div class="rTableHead"><strong>PRODUCT</strong></div>
-                            <div class="rTableHead"><strong>QUANTITY</strong></div>
-                            <div class="rTableHead"><strong>COLOR</strong></div>
                             <div class="rTableHead"><strong>PRICE</strong></div>
-
                         </div>
 					@foreach($all as $c)
 					@foreach($prod as $p)
@@ -80,13 +77,13 @@ label.error {
                             
                             <!--quantity-->
                                                                 <!--c[1] is pid and c[3] is order serial-->
-                            <div class="rTableCell">
+                            <!--<div class="rTableCell">
                            <button type="button" id="sub" value={{$p->id}} data-rel={{$c[3]}} data-rel2={{$p->discount}} class="sub">-</button>   
                         <input type="number"  id="quantity" style="width:15%" name={{$p->id}} value={{$c[1]}} min="1" max="100" readonly/>
-                        <button type="button" id="add" value={{$p->id}} data-rel={{$c[3]}} data-rel2={{$p->discount}}  class="add">+</button></div>
+                        <button type="button" id="add" value={{$p->id}} data-rel={{$c[3]}} data-rel2={{$p->discount}}  class="add">+</button></div>-->
                             
-<!--                            -->
-							<div class="rTableCell"><div style="height:25px;width:25px;display:inline-block;background-color: {{$c[2]}}"></div></div>
+                           
+							<!--<div class="rTableCell"><div style="height:25px;width:25px;display:inline-block;background-color: {{$c[2]}}"></div></div>-->
 							
 							<div class="rTableCell"><div id="individualPrice_{{$c[3]}}">
                                 @php
@@ -94,7 +91,7 @@ label.error {
                                 echo $tot;
                                 @endphp
                                 
-                                TK</div></div>
+                                Eur</div></div>
                                 
 						</div>
                         
@@ -105,12 +102,8 @@ label.error {
                     
                     </div>
                     <div class="order-col">
-                        <div>Shiping</div>
-                        <div><strong>FREE</strong></div>
-                    </div>
-                    <div class="order-col">
                         <div><strong>TOTAL</strong></div>
-                        <div ><strong class="order-total" id="totalCost">{{Session::get('price')}} TK</strong></div>
+                        <div ><strong class="order-total" id="totalCost">{{Session::get('price')}} Eur</strong></div>
                     </div>
                     @else
                     <div class="order-col">
@@ -119,6 +112,7 @@ label.error {
                     @endif
                     
                 </div>
+                <!--
                 <div class="payment-method">
                     <div class="input-radio">
                         <input type="radio" name="payment" id="payment-2" checked>
@@ -130,12 +124,12 @@ label.error {
                             <p>The product Will be delivered within 24 hour of confirmation. We accept only Cash on delivery at this moment.</p>
                         </div>
                     </div>
-                </div>
+                </div>-->
                 @if(session('user'))
                     @if($all != null)
                    <center> <form method="post" name="cart">
                         {{csrf_field()}}
-                        <input type="submit" id="confirm_order"  name="order" class="primary-btn order-submit" value="Confirm order">
+                        <input type="submit" id="confirm_order"  name="order" class="btn btn-warning" value="Confirm order"><!--primary-btn order-submit-->
                     </form></center>
 
                     @else
