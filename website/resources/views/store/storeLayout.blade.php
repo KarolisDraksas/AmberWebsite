@@ -101,7 +101,7 @@
                 break;
                
                 @endphp
-                <div class="col-md-4 col-xs-6">
+                <div class="col-md-3 col-xs-6">
                     <div class="shop">
                         <div class="shop-body">
                             <h3>{{$c->name}}</h3>

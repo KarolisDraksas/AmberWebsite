@@ -28,7 +28,7 @@ class categoriesController extends Controller
     {
         $cat = new Category();
         $cat->name = $request->Name;
-       // $cat->type = $request->Type;
+      
         $cat->save();
         return redirect()->route('admin.categories');
     }
@@ -45,7 +45,6 @@ class categoriesController extends Controller
       
         $catToUpdate = Category::find($request->id);
         $catToUpdate->name = $request->Name;
-        //$catToUpdate->type = $request->Type;
         $catToUpdate->save();
         
         return redirect()->route('admin.categories');
