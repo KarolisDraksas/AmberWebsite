@@ -17,7 +17,6 @@ class Product extends Model
         'description',
         'colors',
         'price',
-        //'discount',
         'tag',
         'category_id'
     ];
