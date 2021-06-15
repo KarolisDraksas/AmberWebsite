@@ -28,53 +28,28 @@
                                     <br>
                                     <div id="empty_image"> </div>
                                     <form class="forms-sample" method="post"  id="product_form">
-                                        {{csrf_field()}}
-                                       
-                                       
+                                        {{csrf_field()}}   
                                         <input id="inp_img" name="img" type="hidden" value="">
                                         <br><br>
                                         <div id="for_extension_error"></div>
                                         <div class="form-group">
-                                            <label  >Product Name*</label>
+                                            <label  >Name</label>
                                             <input type="text" class="form-control" id="Name" name="Name"  value="">
                                         </div>
                                         <div class="form-group">
-                                            <label  for="Description">Product Description*</label>
+                                            <label  for="Description">Description</label>
                                             <textarea type="textarea" class="form-control" id="Description" name="Description"></textarea>
                                         </div>
                                         <div class="form-group">
-                                            <label  for="Category">Category*</label>
+                                            <label  for="Category">Category</label>
                                             <select class="form-control form-control-md" id="Category" name="Category">
                                                 @php foreach($catlist->all() as $cat) {
                                                 echo "<option value=".$cat->id." >".$cat->name." </option>"; $select_attribute=''; } @endphp
                                             </select>
                                         </div>
                                         <div class="form-group">
-                                            <label  >Product Price*</label>
+                                            <label  >Price</label>
                                             <input type="text" class="form-control" name="Price" id="Price" value="">
-                                        </div>
-                                        <div class="form-group">
-                                            <label  >Product Discounted Price*</label>
-                                            <input type="text" class="form-control" id="Discounted_Price"  name="Discounted_Price" value="">
-                                        </div>
-                                        
-                                        <div class="form-group ">
-                                            <label  >Product Colors*</label>
-                                            
-                                            <input type="color" id="picker" class="form-control col-md-2">
-                                            <br>
-                                            <a onclick="addColor()" class="btn btn-sm btn-primary" >add</a>
-                                            <br>
-                                            <br>
-                                            <div id="colors" style="border:1px solid #eee"> 
-                                            </div>  
-                                            <br>            
-                                            <input type="text" class="form-control" id="color_list" name="Colors" value="" hidden>
-                                        </div>
-                                        
-                                        <div class="form-group">
-                                            <label >Product Tags*</label>
-                                            <input type="text" class="form-control" id="Tags" name="Tags" value="">
                                         </div>
                                         <input type="submit" name="saveButton" class="btn btn-success mr-2" id="saveButton" value="Create"  enctype="multipart/form-data"/>
                                     </form>
@@ -168,51 +143,10 @@
             reader.readAsDataURL(input.files[0]);
         }
     }
-    
-    
-    
-  
-function onReadyColorList(arrayOfColor){
-    var addedColor = document.querySelector("#color_list").value;
-    var arrayOfColor = addedColor.split(',');
-    for(var i =0 ; i< arrayOfColor.length; i++){
-        newColor = `<div style="height:25px;display:inline-block;margin:5px;width:25px!important;background-color:${arrayOfColor[i]}"></div>`;
-        document.querySelector("#colors").innerHTML += newColor;
-    }
-}
-
-function addColor(){
-    var pickedColor = document.querySelector("#picker").value;
-    newColor = `<div style="height:25px;display:inline-block;margin:5px;width:25px!important;background-color:${pickedColor}"></div>`;
-    var addedColor = document.querySelector("#color_list").value;
-    var arrayOfColor = [];
-    if (addedColor != ""){  
-        arrayOfColor = addedColor.split(',');
-        if(!arrayOfColor.includes(pickedColor)){
-            arrayOfColor.push(pickedColor);
-            document.querySelector("#color_list").value = arrayOfColor.join(',');
-            document.querySelector("#colors").innerHTML += newColor;
-        }
-    }
-    else{
-        arrayOfColor.push(pickedColor);
-        document.querySelector("#colors").innerHTML += newColor;
-        document.querySelector("#color_list").value = pickedColor;
-    }   
-       // console.log(addedColor);          
-}
-
-
 </script>
-    
-    
-<!--JQUERY Validation-->
 <script>
 	
 	$(document).ready(function() {
-		
-        
-        
 		$("#product_form").validate({
             
 			rules: {
@@ -226,18 +160,6 @@ function addColor(){
 					required: true,
 					number: true
 				},
-                Discounted_Price: {
-					required: true,
-					number: true
-				},
-                colors: "required",
-                Tags: "required"
-                
-                
-				
-				
-				
-				
 			},
 			messages: {
 				
@@ -250,28 +172,8 @@ function addColor(){
 					required: "No Price is Entered",
 					number: "Invalid Price"
 				},
-                Discounted_Price: {
-					required: "No Price is Entered",
-					number: "Invalid Price"
-				},
-                colors: "No Color is Selected",
-                Tags: "No Tags is Selected",
-				
-				
-			}
-            
-            
-            
+			} 
 		});
-        
-                
-
-		
 	});
-    
-  
-    
-    
 	</script>
-<!--/JQUERY Validation-->    
 @endsection

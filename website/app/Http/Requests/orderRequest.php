@@ -25,7 +25,7 @@ class orderRequest extends FormRequest
     {
         return [
             
-            'color' => 'required|required'
+            //'color' => 'required|required'
         ];
     }
 }

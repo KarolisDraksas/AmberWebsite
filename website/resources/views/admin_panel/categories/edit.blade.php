@@ -24,11 +24,7 @@
                           <label for="exampleInputEmail1">Category Name</label>
                           <input type="text" class="form-control" id="Name" name="Name" value="{{$category->name}}">
                         </div>
-                        <div class="form-group">
-                          <label for="exampleInputPassword1">Category Type</label>
-                          <textarea type="textarea" class="form-control" id="Type" name="Type" >{{$category->type}}</textarea>
-                        </div>
-                        <input  type="submit" name="updateButton"  class="btn btn-success mr-2" id="updateButton" value="UPDATE" />
+                        <input  type="submit" name="updateButton"  class="btn btn-success mr-2" id="updateButton" value="Edit" />
                       </form>
                     </div>
                   </div>
@@ -39,32 +35,17 @@
           </div>
         </div>
     
-    
-    <!--JQUERY Validation-->
 <script>
 	
 	$(document).ready(function() {
-		// validate the comment form when it is submitted
-		//$("#commentForm").validate();
-
-		// validate signup form on keyup and submit
 		$("#cat_form").validate({
 			rules: {
-				Name: "required",
-				Type: "required",
-				
-				
-				
+				Name: "required"
 			},
 			messages: {
-				Name: "Category Name is Required",
-				Type: "Category Type is Required",
-                	
+				Name: "Category Name is Required"   	
 			}
 		});
-
-		
 	});
 	</script>
-<!--/JQUERY Validation-->
 @endsection

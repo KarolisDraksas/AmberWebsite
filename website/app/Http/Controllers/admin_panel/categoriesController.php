@@ -28,17 +28,14 @@ class categoriesController extends Controller
     {
         $cat = new Category();
         $cat->name = $request->Name;
-        $cat->type = $request->Type;
+       // $cat->type = $request->Type;
         $cat->save();
         return redirect()->route('admin.categories');
     }
     
     public function edit($id)
     {
-        
-
-        $cat = Category::find($id);
-        
+        $cat = Category::find($id);    
         return view('admin_panel.categories.edit')
             ->with('category', $cat);
     }
@@ -48,7 +45,7 @@ class categoriesController extends Controller
       
         $catToUpdate = Category::find($request->id);
         $catToUpdate->name = $request->Name;
-        $catToUpdate->type = $request->Type;
+        //$catToUpdate->type = $request->Type;
         $catToUpdate->save();
         
         return redirect()->route('admin.categories');
@@ -64,12 +61,11 @@ class categoriesController extends Controller
     }
 
     public function destroy(Request $request)
-    {   //Deleting Category related Products
+    {  
         $prdsToDelete = Product::all()->where('category_id', $request->id);
         
         foreach ($prdsToDelete as $prdToDelete)
         {   
-          //deleting image folder
         try{
             $src='uploads/products/'.$prdToDelete->id.'/';
             $dir = opendir($src);
@@ -90,20 +86,11 @@ class categoriesController extends Controller
         catch(\Exception $e){
 
         }
-        //deleting image folder done
         $prdToDelete->delete();
 
         }
-        
-        
-        
-        
-        
         $catToDelete = Category::find($request->id);
         $catToDelete->delete();
-
-        
-
         return redirect()->route('admin.categories');
     }
 }

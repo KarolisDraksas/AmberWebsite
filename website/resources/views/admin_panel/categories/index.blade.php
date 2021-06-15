@@ -40,7 +40,6 @@
                 </div>
             </div>
         </div>
-
         <div class="col-lg-12 grid-margin stretch-card">
             <div class="card">
                 <div class="card-body">
@@ -51,13 +50,12 @@
                                 <tr>
                                     <th>
                                        Category name
-                                    </th>
-                                    
+                                    </th>    
                                     <th>
                                         Edit
                                     </th>
                                     <th>
-                                        Update
+                                        Delete
                                     </th>
                                 </tr>
                             </thead>
@@ -67,7 +65,6 @@
                                     <td>
                                         {{$cat->name}}
                                     </td>
-                                    
                                     <td>
                                         <a href="{{route('admin.categories.edit', ['id' => $cat->id])}}" class="btn btn-warning">Edit</a>
                                     </td>
@@ -84,9 +81,6 @@
         </div>
     </div>
 </div>
-
-
-<!--JQUERY Validation-->
 <script>
 	
 	$(document).ready(function() {
@@ -94,21 +88,11 @@
 		$("#cat_form").validate({
 			rules: {
 				Name: "required",
-				Type: "required",
-				
-				
-				
 			},
 			messages: {
 				Name: "Category Name is Required",
-				Type: "Category Type is Required",
-                	
 			}
-		});
-
-		
+		});	
 	});
 	</script>
-<!--/JQUERY Validation-->
-
 @endsection

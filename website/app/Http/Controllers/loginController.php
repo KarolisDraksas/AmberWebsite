@@ -41,8 +41,7 @@ class loginController extends Controller
             if($request->Password==$admin->password)
             {
                 session()->put('admin',$admin);
-                //$request->session()->put('username', $request->Username);
-                return redirect()->route('admin.dashboard');
+                return redirect()->route('admin.products');
             }
             
             else if($request->Password!=$admin->password)
@@ -79,8 +78,7 @@ class loginController extends Controller
 
         if($user==null)
         {
-            $request->session()->flash('message', 'Invalid User');
-    		
+            $request->session()->flash('message', 'Invalid User');   		
             return redirect()->route('user.login');
         }
         else

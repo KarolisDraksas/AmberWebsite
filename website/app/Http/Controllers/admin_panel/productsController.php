@@ -51,14 +51,15 @@ class productsController extends Controller
             
     
             $prd = new Product();
+            //$prd->
             $prd->image_name = "1".$ext;
             $prd->name = $request->Name;
             $prd->description = $request->Description;
             $prd->category_id = $request->Category;
             $prd->price = $request->Price;
-            $prd->discount = $request->Discounted_Price;
-            $prd->colors = $request->Colors;
-            $prd->tag = $request->Tags;
+            //$prd->discount = $request->Discounted_Price;
+            //$prd->colors = $request->Colors;
+            //$prd->tag = $request->Tags;
             $prd->save();
             
             
@@ -138,11 +139,11 @@ class productsController extends Controller
         $prdToUpdate->name = $request->Name;
         $prdToUpdate->description = $request->Description;
         $prdToUpdate->price = $request->Price;
-        $prdToUpdate->discount= $request->Discounted_Price;
+        //$prdToUpdate->discount= $request->Discounted_Price;
         $prdToUpdate->category_id = $request->Category;
   
-        $prdToUpdate->colors = $request->Colors;
-        $prdToUpdate->tag= $request->Tags;
+       // $prdToUpdate->colors = $request->Colors;
+        //$prdToUpdate->tag= $request->Tags;
         
         //NEW FILE UPLOADED
         if($request->img!="")
@@ -231,9 +232,7 @@ class productsController extends Controller
     }
 
     public function destroy(Request $request)
-    {
-        
-       
+    {     
         $prdToDelete = Product::find($request->id);
         
         //deleting image folder
@@ -263,14 +262,6 @@ class productsController extends Controller
         
         $prdToDelete->delete();
         
-        return redirect()->route('admin.products');
-
-        
-       
-        
-    }
-    
-   
-    
-    
+        return redirect()->route('admin.products');   
+    } 
 }

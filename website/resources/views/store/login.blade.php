@@ -10,46 +10,34 @@ label.error {
   border-color: #ebccd1;
   padding:1px 20px 1px 20px;
 }</style>
-<!-- SECTION -->
+
 <div class="section">
-    <!-- container -->
     <div class="container">
-        <!-- row -->
         <div class="row">
         <form method="post" id="loginForm">
             {{csrf_field()}}
             <div class="col-md-6" style="float: none;">
-                <!-- Billing Details -->
                 <div class="billing-details">
                     <div class="section-title">
                         <h3 class="title">User Login</h3>
                     </div>
                     <div class="form-group">
-                        <input class="input" type="email" name="email" id="email" placeholder="Email" value="john@examle.com">
+                        <input class="input" type="email" name="email" id="email">
                     </div>
                     <div class="form-group">
-                        <input class="input" type="password" name="pass" id="pass" placeholder="Password" value="12345">
+                        <input class="input" type="password" name="pass" id="pass">
                     </div>
                         <input type="submit"  name="signin" class="primary-btn order-submit" value="Sign In">
                 </form>
                
                 @if(session('message'))
-                
-                
                 <tr>
                     <td>
                         <li> {{session('message')}}</li>
                     </td>
                 </tr>
-                
-                
-                
-                
-		         
-                @endif   
-                
+                @endif    
                 @if($errors->any())
-
                                     <ul>
                                         @foreach($errors->all() as $err)
                                         <tr>
@@ -59,25 +47,14 @@ label.error {
                                         </tr>
                                         @endforeach
                                     </ul>
-                                    @endif
-                    
+                                    @endif           
                 </div>
-                <!-- /Billing Details -->
             </div>
-
         </div>
-        <!-- /row -->
     </div>
-    <!-- /container -->
 </div>
-<!--JQUERY Validation-->
 <script>
-	
 	$(document).ready(function() {
-		// validate the comment form when it is submitted
-		//$("#commentForm").validate();
-
-		// validate signup form on keyup and submit
 		$("#loginForm").validate({
 			rules: {
 				
@@ -93,20 +70,12 @@ label.error {
 			messages: {
 				
 				email: "Please enter a valid email address",
-                
-                
 				pass: {
 					required: "Please provide a password",
 					minlength: "Your password must be at least 5 characters long"
-				}
-				
-				
+				}		
 			}
 		});
-
-		
 	});
 	</script>
-<!--/JQUERY Validation-->
-<!-- /SECTION -->
 @endsection

@@ -28,7 +28,9 @@ Route::group(['middleware' => 'admin'], function(){
 
  
     /*Route::get("/admin_panel", 'admin_panel\dashboardController@index')->name('admin.dashboard');*/
-    Route::get('/admin_panel', [App\Http\Controllers\admin_panel\dashboardController::class, 'index'])->name('admin.dashboard');
+    //Route::get('/admin_panel', [App\Http\Controllers\admin_panel\dashboardController::class, 'index'])->name('admin.dashboard');
+    //Route::get('/admin_panel', [App\Http\Controllers\admin_panel\dashboardController::class, 'index'])->name('admin.products');
+
 
     /*Route::get('admin/logout', 'loginController@adminLogout')->name('admin.logout');*/
     Route::get('admin/logout', [App\Http\Controllers\loginController::class, 'adminLogout'])->name('admin.logout');
@@ -74,8 +76,8 @@ Route::group(['middleware' => 'admin'], function(){
     //order management 
     /*Route::get('/admin_panel/management', 'admin_panel\managementController@manage')->name('admin.orderManagement');
     Route::post('/admin_panel/management', 'admin_panel\managementController@update')->name('admin.orderUpdate');*/
-    Route::get('/admin_panel/management', [App\Http\Controllers\admin_panel\managementController::class, 'manage'])->name('admin.orderManagement');
-    Route::post('/admin_panel/management', [App\Http\Controllers\admin_panel\managementController::class, 'update'])->name('admin.orderUpdate');
+    //Route::get('/admin_panel/management', [App\Http\Controllers\admin_panel\managementController::class, 'manage'])->name('admin.orderManagement');
+   // Route::post('/admin_panel/management', [App\Http\Controllers\admin_panel\managementController::class, 'update'])->name('admin.orderUpdate');
 
 });
 
@@ -106,10 +108,10 @@ Route::post('/signup', [App\Http\Controllers\signupController::class, 'userPoste
 /*Route::post('/check_email', 'signupController@emailCheck')->name('user.signup.check_email');*/
 Route::post('/check_email', [App\Http\Controllers\signupController::class, 'emailCheck'])->name('user.signup.check_email');
 
-Route::group(['middleware' => 'user'], function(){
+/*Route::group(['middleware' => 'user'], function(){
     /*Route::get('/history', 'user\userController@history')->name('user.history');*/
-    Route::get('/history', [App\Http\Controllers\user\userController::class, 'history'])->name('user.history');
-});
+ /*   Route::get('/history', [App\Http\Controllers\user\userController::class, 'history'])->name('user.history');
+});*/
 
 /*Route::get('/logout', 'loginController@userLogout')->name('user.logout');*/
 Route::get('/logout', [App\Http\Controllers\loginController::class, 'userLogout'])->name('user.logout');

@@ -35,7 +35,7 @@
                                             <textarea type="textarea" class="form-control" name="Description">{{$product->description}}</textarea>
                                         </div>
                                         <div class="form-group">
-                                            <label for="exampleFormControlSelect1">Large select</label>
+                                            <label for="exampleFormControlSelect1">Category</label>
                                             <select class="form-control form-control-md" id="exampleFormControlSelect1" name="Category">
                                                 @php foreach($catlist->all() as $cat) { if($product->category->id==$cat->id) { $select_attribute='selected'; } echo "
                                                 <option value=".$cat->id." " .$select_attribute.">".$cat->name." </option>"; $select_attribute=''; } @endphp
@@ -45,34 +45,9 @@
                                             <label >Product Price</label>
                                             <input type="text" class="form-control" name="Price" value="{{$product->price}}">
                                         </div>
-                                        <div class="form-group">
-                                            <label >Product Discounted Price</label>
-                                            <input type="text" class="form-control"  name="Discounted_Price" value="{{$product->discount}}">
-                                        </div>
-                                        
-                                        <div class="form-group ">
-                                            <label >Product Colors</label>
-                                            
-                                            <input type="color" id="picker" class="form-control col-md-2">
-                                            <br>
-                                            <a onclick="addColor()" class="btn btn-sm btn-primary" >add</a>
-                                            <br>
-                                            <br>
-                                            <div id="colors" style="border:1px solid #eee"> 
-                                            </div>  
-                                            <br>            
-                                            <input type="text" class="form-control" id="color_list" name="Colors" value="{{$product->colors}}" hidden>
-                                        </div>
-                                        
-                                        <div class="form-group">
-                                            <label >Product Tags</label>
-                                            <input type="text" class="form-control" id="exampleInputEmail1" name="Tags" value="{{$product->tag}}">
-                                        </div>
-                                        <input type="submit" name="saveButton" class="btn btn-success mr-2" id="updateButton" value="UPDATE" />
+                                        <input type="submit" name="saveButton" class="btn btn-success mr-2" id="updateButton" value="Edit" />
                                     </form>
                                     @if($errors->any())
-
-
                                     <ul>
                                         @foreach($errors->all() as $err)
                                         <tr>
@@ -159,43 +134,6 @@
             reader.readAsDataURL(input.files[0]);
         }
     }
-   
-$( document ).ready(function() {
-    var addedColor = document.querySelector("#color_list").value;
-    var arrayOfColor = addedColor.split(',');
-    
-    
-    
-    //console.log(addedColor);
-    onReadyColorList(arrayOfColor);       
-});
-function onReadyColorList(arrayOfColor){
-    var addedColor = document.querySelector("#color_list").value;
-    var arrayOfColor = addedColor.split(',');
-    for(var i =0 ; i< arrayOfColor.length; i++){
-        newColor = `<div style="height:25px;display:inline-block;margin:5px;width:25px!important;background-color:${arrayOfColor[i]}"></div>`;
-        document.querySelector("#colors").innerHTML += newColor;
-    }
-}
-function addColor(){
-    var pickedColor = document.querySelector("#picker").value;
-    newColor = `<div style="height:25px;display:inline-block;margin:5px;width:25px!important;background-color:${pickedColor}"></div>`;
-    var addedColor = document.querySelector("#color_list").value;
-    //console.log(addedColor);
-    if (addColor != null){  
-        var arrayOfColor = addedColor.split(',');
-        if(!arrayOfColor.includes(pickedColor)){
-            arrayOfColor.push(pickedColor);
-            document.querySelector("#color_list").value = arrayOfColor.join(',');
-            document.querySelector("#colors").innerHTML += newColor;
-        }
-        
-        console.log(addedColor);
-       
-        
-    } 
-}
-
 </script>
     
 
