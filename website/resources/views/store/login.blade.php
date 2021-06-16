@@ -22,10 +22,10 @@ label.error {
                         <h3 class="title">User Login</h3>
                     </div>
                     <div class="form-group">
-                        <input class="input" type="email" name="email" id="email">
+                        <input class="input" type="email" name="email" id="email" placeholder="email">
                     </div>
                     <div class="form-group">
-                        <input class="input" type="password" name="pass" id="pass">
+                        <input class="input" type="password" name="pass" id="pass" placeholder="password">
                     </div>
                         <input type="submit"  name="signin" class="primary-btn order-submit" value="Sign In">
                 </form>
