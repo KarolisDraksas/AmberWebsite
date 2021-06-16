@@ -51,15 +51,13 @@ class productsController extends Controller
             
     
             $prd = new Product();
-            //$prd->
+
             $prd->image_name = "1".$ext;
             $prd->name = $request->Name;
             $prd->description = $request->Description;
             $prd->category_id = $request->Category;
             $prd->price = $request->Price;
-            //$prd->discount = $request->Discounted_Price;
-            //$prd->colors = $request->Colors;
-            //$prd->tag = $request->Tags;
+
             $prd->save();
             
             
@@ -85,28 +83,11 @@ class productsController extends Controller
             
 
         }
-            
-         /*$file = $request->file('myfile');
-            //$last_inc_id = DB::getPdo()->lastInsertId();//
-            $extension=$file->getClientOriginalExtension();
-            
-            
-            
-            
-            
-            
-            $file->move(public_path().$temp_string."/","1.".$file->getClientOriginalExtension());*/
-            
-            
         
-            
-            
-            
         return redirect()->route('admin.products');
         } catch (Throwable $th) {
             dd($th->getMessage());
-            /*return view('admin.products');*/
-           /* return redirect()->route('admin_panel.products');*/
+    
         }
         
     }
@@ -139,11 +120,7 @@ class productsController extends Controller
         $prdToUpdate->name = $request->Name;
         $prdToUpdate->description = $request->Description;
         $prdToUpdate->price = $request->Price;
-        //$prdToUpdate->discount= $request->Discounted_Price;
         $prdToUpdate->category_id = $request->Category;
-  
-       // $prdToUpdate->colors = $request->Colors;
-        //$prdToUpdate->tag= $request->Tags;
         
         //NEW FILE UPLOADED
         if($request->img!="")
@@ -190,24 +167,6 @@ class productsController extends Controller
             
             return redirect()->route('admin.products');
             
-            
-            /*
-            $file = $request->file('myfile');
-            $extension=$file->getClientOriginalExtension();
-            if($extension=="jpg"|| $extension=="jpeg"|| $extension=="png"|| $extension=="JPG"|| $extension=="JPEG"|| $extension=="PNG" )
-            {
-            //$temp_for_same_file_name = Product::where('image_name',$file->getClientOriginalName())->first();
-
-            //$file_pointer = "uploads/products/".$product_image_ToUpdate->id."/".  $product_image_ToUpdate->image_name;
-            //unlink($file_pointer);
-            $temp_string='/uploads/products/'.$prdToUpdate->id;
-            $prdToUpdate->image_name = "1.".$file->getClientOriginalExtension();
-            $file->move(public_path().$temp_string."/","1.".$file->getClientOriginalExtension());
-                
-            $prdToUpdate->save();
-            }
-        
-            return redirect()->route('admin.products');*/
         }
         else
         {
