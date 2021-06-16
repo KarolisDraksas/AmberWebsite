@@ -96,13 +96,9 @@ class productsController extends Controller
     public function edit($id)
     {
         $cat = Category::all();
-        
-          
 
         $prd = Product::find($id);
-        
-        
-        
+
         return view('admin_panel.products.edit')
             ->with('product', $prd)
             ->with('catlist', $cat)
@@ -113,8 +109,6 @@ class productsController extends Controller
 
     public function update(ProductEditVerifyRequest $request, $id)
     {
-      
-        
         
         $prdToUpdate = Product::find($request->id);
         $prdToUpdate->name = $request->Name;
