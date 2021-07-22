@@ -38,6 +38,30 @@ class productsController extends Controller
         try {
             $img = explode('|', $request->img);
  
+            $aaa= '';
+                for ($i = 0; $i < count($img) - 1; $i++) {
+
+                if (strpos($img[$i], 'data:image/jpeg;base64,') === 0) {
+                    //$img[$i] = str_replace('data:image/jpeg;base64,', '', $img[$i]);  
+                    $aaa = '.jpg';
+                }
+                if (strpos($img[$i], 'data:image/png;base64,') === 0) { 
+                    //$img[$i] = str_replace('data:image/png;base64,', '', $img[$i]); 
+                    $aaa = '.png';
+                }
+            }
+            $prd = new Product();
+
+            $prd->image_name = "1".$aaa;
+            //$prd->image_name = $i.$ext;
+
+            $prd->name = $request->Name;
+            $prd->description = $request->Description;
+            $prd->category_id = $request->Category;
+            $prd->price = $request->Price;
+
+            $prd->save();
+
             for ($i = 0; $i < count($img) - 1; $i++) {
 
             if (strpos($img[$i], 'data:image/jpeg;base64,') === 0) {
@@ -50,15 +74,17 @@ class productsController extends Controller
             }
             
     
-            $prd = new Product();
+            // $prd = new Product();
 
-            $prd->image_name = "1".$ext;
-            $prd->name = $request->Name;
-            $prd->description = $request->Description;
-            $prd->category_id = $request->Category;
-            $prd->price = $request->Price;
+            // $prd->image_name = "1".$ext;
+            // //$prd->image_name = $i.$ext;
 
-            $prd->save();
+            // $prd->name = $request->Name;
+            // $prd->description = $request->Description;
+            // $prd->category_id = $request->Category;
+            // $prd->price = $request->Price;
+
+            // $prd->save();
             
             
 
@@ -68,10 +94,29 @@ class productsController extends Controller
             $temp_string='/uploads/products/'.$prd->id;
             $temp_string2='uploads/products/'.$prd->id;
     
+
+            //cia tikrina ar yra tokia direktorija 
+            // jei nera tada sukuria direktotija ir ta faila
+            // tai reikia kazkaip atskirt
+            //// --------- kaip ir gerai dabar :) 
+            // tik pakeista img name save'as db mysql'e
+            // bet idk ten cj kazkaip pakeist kad img pagal id search'intu o ne name.
             if (!file_exists(public_path().$temp_string)) {
                 mkdir( public_path().$temp_string, 0777, true);
                 
-                $file = $temp_string2.'/1'.$ext;
+                $file = $temp_string2.'/'.$i.$ext;
+                //$file = $temp_string2.'/1'.$ext;
+
+                
+            if (file_put_contents($file, $data)) {
+                echo "<p>Image $i was saved as $file.</p>";
+            } else {
+                echo '<p>Image $i could not be saved.</p>';
+            } 
+            } else {
+                $file = $temp_string2.'/'.$i.$ext;
+                //$file = $temp_string2.'/1'.$ext;
+
                 
             if (file_put_contents($file, $data)) {
                 echo "<p>Image $i was saved as $file.</p>";

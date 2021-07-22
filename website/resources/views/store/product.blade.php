@@ -19,12 +19,26 @@ label.error {
 <div class="section">
     <div class="container">
         <div class="row">
-            <div class="col-md-5 ">
+            <!--<div class="col-md-5 ">
                 <div id="product-main-img">
                     <div class="product-preview">
-                        <img src="../uploads/products/{{$product->id}}/{{$product->image_name}}" alt="">
+                        @for ($i = 0; $i < 3; $i++)
+                            <img src="../uploads/products/{{$product->id}}/{{strval($i)}}.jpg" alt="">
+                        @endfor
+   
                     </div>
                 </div>
+            </div>-->
+            <div class="col-md-5 product-image">
+            <div>
+                <img src="../uploads/products/{{$product->id}}/0.jpg" width="100%" height="100%" id="current-image">
+            </div>
+            <div class="image-thumbnails">
+            <img src="../uploads/products/{{$product->id}}/0.jpg" class="image-thumbnail active">
+                    <img src="../uploads/products/{{$product->id}}/1.jpg" class="image-thumbnail">
+                    <img src="../uploads/products/{{$product->id}}/1.jpg" class="image-thumbnail">
+                    <img src="../uploads/products/{{$product->id}}/1.jpg" class="image-thumbnail">
+            </div>
             </div>
             <div class="col-md-5">
                 <div class="product-details">
@@ -48,4 +62,50 @@ label.error {
     </div>
 </div>
 <div style="height:200px"></div>
+
+<script>
+        $(document).ready(function () {
+            // force the height to be as as long as the width
+        
+            var w = $('#current-image').width();
+
+            $('#current-image').css({'height': w + 'px'});
+            $('.image-thumbnail').on('click', (e) => {
+                $('.image-thumbnail').removeClass('active');
+                $(e.currentTarget).addClass('active');
+                if($(e.currentTarget).attr('src') != $('#current-image').attr('src')) {
+                    $(e.currentTarget).addClass('active');
+                    $('#current-image').animate({'opacity' : 0}, 300, function() {
+                        $('#current-image').attr('src', $(e.currentTarget).attr('src'));
+                        $('#current-image').animate({'opacity' : 1}, 400);
+                    })
+                }
+            });
+        });
+    </script>
+
+@endsection
+@section('scripts')
+
+    <script>
+        $(document).ready(function () {
+            // force the height to be as as long as the width
+            console.log(555);
+            var w = $('#current-image').width();
+            console.log(555);
+            $('#current-image').css({'height': w + 'px'});
+            $('.image-thumbnail').on('click', (e) => {
+                $('.image-thumbnail').removeClass('active');
+                $(e.currentTarget).addClass('active');
+                if($(e.currentTarget).attr('src') != $('#current-image').attr('src')) {
+                    $(e.currentTarget).addClass('active');
+                    $('#current-image').animate({'opacity' : 0}, 300, function() {
+                        $('#current-image').attr('src', $(e.currentTarget).attr('src'));
+                        $('#current-image').animate({'opacity' : 1}, 400);
+                    })
+                }
+            });
+        });
+    </script>
+
 @endsection

@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Amber website</title>
+    <title>Royal Amber</title>
 
 
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,700" rel="stylesheet">
@@ -35,7 +35,7 @@
                     <div class="col-md-3">
                         <div class="">
                             <a href="{{route('user.home')}}">
-                               <h2 class="header-name">Amber website</h2>
+                               <h2 class="header-name">Royal Amber</h2>
                             </a>
                         </div>
                     </div>
