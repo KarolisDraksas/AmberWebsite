@@ -98,12 +98,7 @@ class productsController extends Controller
             $temp_string2='uploads/products/'.$prd->id;
     
 
-            //cia tikrina ar yra tokia direktorija 
-            // jei nera tada sukuria direktotija ir ta faila
-            // tai reikia kazkaip atskirt
-            //// --------- kaip ir gerai dabar :) 
-            // tik pakeista img name save'as db mysql'e
-            // bet idk ten cj kazkaip pakeist kad img pagal id search'intu o ne name.
+           
             if (!file_exists(public_path().$temp_string)) {
                 mkdir( public_path().$temp_string, 0777, true);
                 
