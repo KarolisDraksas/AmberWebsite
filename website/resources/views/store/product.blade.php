@@ -31,13 +31,13 @@ label.error {
             </div>-->
             <div class="col-md-5 product-image">
             <div>
-                <img src="../uploads/products/{{$product->id}}/0.jpg" width="100%" height="100%" id="current-image">
+                <img src="../uploads/products/{{$product->id}}/0.{{$product->ext}}" width="100%" height="100%" id="current-image">
             </div>
             <div class="image-thumbnails">
-            <img src="../uploads/products/{{$product->id}}/0.jpg" class="image-thumbnail active">
-                    <img src="../uploads/products/{{$product->id}}/1.jpg" class="image-thumbnail">
-                    <img src="../uploads/products/{{$product->id}}/1.jpg" class="image-thumbnail">
-                    <img src="../uploads/products/{{$product->id}}/1.jpg" class="image-thumbnail">
+            <img src="../uploads/products/{{$product->id}}/0.{{$product->ext}}" class="image-thumbnail active">
+                @for ($i = 1; $i < $product->image_name ; $i++)
+                    <img src="../uploads/products/{{$product->id}}/{{strval($i)}}.{{$product->ext}}" class="image-thumbnail">
+                @endfor
             </div>
             </div>
             <div class="col-md-5">

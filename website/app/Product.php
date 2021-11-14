@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Str;
 
 class Product extends Model
 {
@@ -14,6 +15,7 @@ class Product extends Model
     protected $fillable = [
         'name',
         'image_name',
+        'ext',
         'description',
         'colors',
         'price',
@@ -25,6 +27,11 @@ class Product extends Model
     {
     	return $this->belongsTo('App\Category','category_id','id');
     }
-    
-    
+    public function path(){
+        return url("/product/{$this->id}-" . Str::slug($this->name));
+    }
+    public function view_path(){
+        return url("/view/{$this->id}-" . Str::slug($this->name));
+    }
+      
 }

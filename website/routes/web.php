@@ -74,9 +74,15 @@ Route::post('/edit_cart', [App\Http\Controllers\user\userController::class, 'edi
 
 Route::post('/delete_item_from_cart', [App\Http\Controllers\user\userController::class, 'deleteCartItem'])->name('user.deleteCartItem');
 
-Route::get('/view/{id}', [App\Http\Controllers\user\userController::class, 'view'])->name('user.view');
+Route::get('/view/{id}-{name}', [App\Http\Controllers\user\userController::class, 'view'])->name('user.view');
+//Route::get('/view/{name}', [App\Http\Controllers\user\userController::class, 'view'])->name('user.view');
+
 Route::post('/view/{id}', [App\Http\Controllers\user\userController::class, 'post']);
 
 
-Route::get('/product/{id}', [App\Http\Controllers\user\userController::class, 'view'])->name('user.product');
+
+Route::get('/product/{id}-{name}', [App\Http\Controllers\user\userController::class, 'view'])->name('user.product');
+//Route::get('/product/{id}', [App\Http\Controllers\user\userController::class, 'view'])->name('user.product');
+
 Route::post('/product/{id}', [App\Http\Controllers\user\userController::class, 'post']);
+

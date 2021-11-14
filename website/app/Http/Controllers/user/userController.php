@@ -23,9 +23,9 @@ class userController extends Controller
             ->with("cat", $cat)
             ->with('index', 1);
     }
-    public function view($id)
+    public function view($id)  //$id
     {      
-        $res = Product::find($id);
+        $res = Product::find($id);  //$id
         $res1 = Product::all();
         $cat=Category::find($res->category_id);
     	$cat = Category::all();

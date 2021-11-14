@@ -9,10 +9,10 @@
                     <div class="col-md-4 col-xs-6">
                         <div class="product">
                             <div class="product-img">
-                                <img src="uploads/products/{{$product->id}}/{{$product->image_name}}" alt="">                    
+                                <img src="uploads/products/{{$product->id}}/0.{{$product->ext}}" alt="">                    
                             </div>
                             <div class="product-body">
-                                <h3 class="product-name"><a href="product/{{$product->id}}">{{$product->name}}</a></h3>
+                                <h3 class="product-name"><a href="/product/{{$product->id}}-{{$product->name}}">{{$product->name}}</a></h3>
                                 <h4 class="product-price">{{$product->price}} Eur</h4>
                             </div>
                          

@@ -43,18 +43,21 @@ class productsController extends Controller
 
                 if (strpos($img[$i], 'data:image/jpeg;base64,') === 0) {
                     //$img[$i] = str_replace('data:image/jpeg;base64,', '', $img[$i]);  
-                    $aaa = '.jpg';
+                    $aaa = 'jpg';
                 }
                 if (strpos($img[$i], 'data:image/png;base64,') === 0) { 
                     //$img[$i] = str_replace('data:image/png;base64,', '', $img[$i]); 
-                    $aaa = '.png';
+                    $aaa = 'png';
                 }
             }
             $prd = new Product();
+            
+            $prd->ext = $aaa;
 
-            $prd->image_name = "1".$aaa;
+            $prd->image_name = count($img)-1;
+            //$prd->image_name = "1".$aaa;
             //$prd->image_name = $i.$ext;
-
+            
             $prd->name = $request->Name;
             $prd->description = $request->Description;
             $prd->category_id = $request->Category;
